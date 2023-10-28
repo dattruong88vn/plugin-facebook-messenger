@@ -1,4 +1,6 @@
-import Script from "next/script";
+"use client";
+
+import React from "react";
 
 function Facebook() {
   return (
@@ -6,13 +8,17 @@ function Facebook() {
       <div id="fb-root"></div>
 
       <div id="fb-customer-chat" className="fb-customerchat"></div>
-      <Script id="facebook" strategy="lazyOnload">
-        {`
-            var chatbox = document.getElementById('fb-customer-chat');
+
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `var chatbox = document.getElementById('fb-customer-chat');
             chatbox.setAttribute("page_id", "164814023375121");
-            chatbox.setAttribute("attribution", "biz_inbox");
-      
-            window.fbAsyncInit = function() {
+            chatbox.setAttribute("attribution", "biz_inbox");`,
+        }}
+      ></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `window.fbAsyncInit = function() {
                 FB.init({
                   xfbml            : true,
                   version          : 'v18.0'
@@ -25,9 +31,9 @@ function Facebook() {
                 js = d.createElement(s); js.id = id;
                 js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
                 fjs.parentNode.insertBefore(js, fjs);
-              }(document, 'script', 'facebook-jssdk'));
-        `}
-      </Script>
+              }(document, 'script', 'facebook-jssdk'));`,
+        }}
+      ></script>
     </div>
   );
 }
