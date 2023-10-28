@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import FacebookMessenger from "./components/FacebookMessenger";
+import FacebookMessenger from "../components/FacebookMessenger";
 
 const inter = Inter({ subsets: ["latin"] });
 
