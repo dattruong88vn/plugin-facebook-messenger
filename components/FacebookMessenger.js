@@ -7,7 +7,7 @@ function Facebook() {
     <div>
       <div id="fb-root"></div>
 
-      <div id="fb-customer-chat" class="fb-customerchat"></div>
+      <div id="fb-customer-chat" className="fb-customerchat"></div>
 
       <script
         dangerouslySetInnerHTML={{

@@ -1,12 +1,33 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+
+import React, { useEffect } from "react";
+import Image from "next/image";
+import styles from "./page.module.css";
 
 export default function Home() {
+  useEffect(() => {
+    let timerRef;
+    // show/hide messenger chat
+    const messengerChatElement =
+      document.getElementsByClassName("fb_dialog_content");
+
+    if (messengerChatElement.length > 0) {
+      timerRef = setTimeout(() => {
+        console.log("hide messenger");
+        messengerChatElement[0].setAttribute("visibility", "hidden");
+      }, 5000);
+    }
+
+    return () => {
+      clearTimeout(timerRef);
+    };
+  }, []);
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
-          Get started by editing&nbsp;
+          Get started by editing&nbsp; DAT
           <code className={styles.code}>app/page.js</code>
         </p>
         <div>
@@ -15,7 +36,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -91,5 +112,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }
