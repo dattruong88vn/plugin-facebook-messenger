@@ -7,16 +7,17 @@ import styles from "./page.module.css";
 export default function Home() {
   useEffect(() => {
     let timerRef;
-    // show/hide messenger chat
-    const messengerChatElement =
-      document.getElementsByClassName("fb_dialog_content");
+    timerRef = setTimeout(() => {
+      // show/hide messenger chat
+      const messengerChatElement =
+        document.getElementsByClassName("fb_dialog_content");
+      console.log({ messengerChatElement });
 
-    if (messengerChatElement.length > 0) {
-      timerRef = setTimeout(() => {
+      if (messengerChatElement.length > 0) {
         console.log("hide messenger");
         messengerChatElement[0].setAttribute("visibility", "hidden");
-      }, 5000);
-    }
+      }
+    }, 10000);
 
     return () => {
       clearTimeout(timerRef);
